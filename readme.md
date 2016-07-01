@@ -6,7 +6,7 @@
 
 ### 更新说明
 
-2016-06-08 发布适配 `Laravel 5.2` 新版： [`YASCMF/BASE`](https://github.com/yascmf/base) ，启用新的仓库地址，`5.1` 旧版将进入存档期。更新的内容，可参考下面版本比较。
+2016-07-01 在 `Github` 发布适配 `Laravel 5.2` 新版： [`YASCMF/BASE`](https://github.com/yascmf/base) ，启用新的仓库地址，`5.1` 旧版将进入存档期。更新的内容，可参考下面版本比较。
 
 ### 版本比较
 
@@ -30,7 +30,7 @@
 
 ### 安装与演示
 
-请参考：[docs/install.md](https://base.yascmf.com/docs/install.md)
+请参考：[docs/install.md](http://www.yascmf.com/docs/install.md)
 
 官方线上站点已开启演示功能，请在浏览器中打开：`https://base.yascmf.com/admin` ，通过用户名 `demo` 与密码 `demo123` 帐号体验一番。请注意：演示帐号没有任何写权限，操作过程中可能会出现权限不足的提醒页面。
 
@@ -40,13 +40,13 @@
 
 `Laravel` 文档地址：https://laravel.com/docs/5.2 （目前国内中文文档暂未完全更新）
 
-`YASCMF` 文档地址：https://base.yascmf.com/docs
+`YASCMF` 官方文档地址：http://www.yascmf.com/docs/index
 
 ### 联系作者
 
-Email: raoyc2009#gmail.com （请修改改`#` 为`@`）
-文档站点：https://base.yascmf.com/docs
-QQ群：260655062
+>   Email: raoyc2009#gmail.com （请修改改`#` 为`@`）
+>   文档站点：http://www.yascmf.com/docs/index  
+>   QQ群：260655062  
 
 ## 授权协议
 
