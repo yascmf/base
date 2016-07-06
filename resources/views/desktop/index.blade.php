@@ -49,6 +49,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
+                        <a href="http://www.yascmf.com/docs/index">{{ trans('yascmf.bottom_nav.doc') }}</a>
+                    </li>
+                    <li>
                         <a href="http://www.yascmf.com/blog">{{ trans('yascmf.bottom_nav.blog') }}</a>
                     </li>
                     <li>
