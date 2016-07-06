@@ -23,7 +23,6 @@ time, mark, audio, video {
     font: inherit;
     vertical-align: baseline;
 }
-
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -334,54 +333,4 @@ table tr:nth-child(2n) {
 
 img {
   max-width: 100%
-}
-
-
-/*
-    extra style
-    @author raoyc <raoyc2009@gmail.com>
-*/
-body.md-doc {
-  font-family: "Lato", Helvetica, Verdana, Tahoma, Arial, "DejaVu Sans", "\5FAE\8F6F\96C5\9ED1";
-  max-width: none;
-}
-.docs-wrapper {
-  padding: 50px 0;
-  background-color: #f8f8f8;
-}
-strong {
-  font-weight: bold;
-}
-ul {
-  list-style-type: disc;
-  list-style-position:inside;
-}
-ol {
-  list-style-type: decimal;
-  list-style-position:inside;
-}
-footer {
-  padding: 50px 0;
-  background-color: #f8f8f8;
-}
-.docs-nav {
-  padding: 10px 0px 10px 10px;
-}
-.docs-nav ul {
-  list-style-type: none;
-  list-style-position:inside;
-}
-.docs-nav ul li {
-  line-height: 24px;
-  color: #999;
-}
-.docs-nav ul li>a {
-  color: #999;
-  text-decoration: none;
-}
-.docs-nav ul li>a:hover, .docs-nav ul li.active a {
-  color: #000;
-}
-.docs-nav .sider p {
-  font-weight: bold;
 }

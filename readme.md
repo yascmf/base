@@ -44,8 +44,7 @@
 
 ### 联系作者
 
->   Email: raoyc2009#gmail.com （请修改改`#` 为`@`）
->   文档站点：http://www.yascmf.com/docs/index  
+>   Email: raoyc2009#gmail.com （请修改改`#` 为`@`）  
 >   QQ群：260655062  
 
 ## 授权协议
