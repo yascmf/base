@@ -22,7 +22,7 @@
 
 4. 管理后台已实现自由切换肤色与布局；静态资源分类更加合理；删除了很多旧版无用的静态资源文件；
 
-5. 更加完善的文档资源，二次开发文档已同步在仓库中。
+5. 更加完善的文档资源，二次开发文档已同步在[文档仓库](https://github.com/yascmf/docs)中。
 
 6. 使用 `Scheme-Less URL` ，方便以后 `http/https` 部署；支持静态资源 `CDN` 部署，提供诸多助手函数辅助网址与资源链接生成。
 
@@ -30,9 +30,9 @@
 
 ### 安装与演示
 
-请参考：[docs/install.md](http://www.yascmf.com/docs/install.md)
+安装请参考：[docs/install.md](http://www.yascmf.com/docs/install.md)
 
-官方线上站点已开启演示功能，请在浏览器中打开：`https://base.yascmf.com/admin` ，通过用户名 `demo` 与密码 `demo123` 帐号体验一番。请注意：演示帐号没有任何写权限，操作过程中可能会出现权限不足的提醒页面。
+在线演示请参考：[docs/demo.md](http://www.yascmf.com/docs/demo.md)
 
 ### 文档
 
@@ -42,20 +42,30 @@
 
 `YASCMF` 官方文档地址：http://www.yascmf.com/docs/index
 
-### 联系作者
+`YASCMF` 官方文档仓库：https://github.com/yascmf/docs
 
->   Email: raoyc2009#gmail.com （请修改改`#` 为`@`） 
->   文档站点：http://www.yascmf.com/docs/index  
->   QQ群：260655062  
-
-## 授权协议
+### 授权协议
 
 本系统基础开发版遵循 [MIT](http://opensource.org/licenses/MIT) 授权协议。
 
+### 打赏捐助
+
+开源项目离不开各位朋友的支持，如果您觉得 YASCMF 系列软件/源码还不错，可以考虑打赏几元支持一下作者我。打赏捐助的钱会用于服务器和相关网站的运营。
+
+使用支付宝或微信手机客户端扫描下面对应的二维码捐赠：
+
+![wechat_alipay](http://www.yascmf.com/assets/wechat_alipay.jpg)
+
+最新打赏捐助记录：http://www.yascmf.com/docs/donation.md
+
+
 ### 贡献代码
 
-你可以 `Fork` 本项目，修改代码，向原作者发出 `pull request` ，合理有效的请求会被接受并入到官方的 `master` 版本中。
+你可以 [`Fork`](https://github.com/yascmf/base/fork) 本项目，修改代码，向原作者发出 `pull request` ，合理有效的请求会被接受并入到官方的 `master` 版本中。
 
-当然，如果有使用或者开发上的问题，也可提出新的 [issue](https://github.com/yascmf/base/issues/new) 。
+当然，如果有使用或者开发上的问题，也可在 `Github` 上提出新的 [issue](https://github.com/yascmf/base/issues/new) 。
 
+### 联系作者
 
+>   Email: raoyc2009#gmail.com （请修改改`#` 为`@`）  
+>   QQ群：260655062  
