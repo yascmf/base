@@ -8,8 +8,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "erusev/parsedown-extra": "0.7.0",
-        "douyasi/identity-card": "dev-master",
-        "douyasi/locator": "~1.0"
+        "douyasi/identity-card": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
