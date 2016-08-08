@@ -1,3 +1,0 @@
-hello world
-one.yas.so
-test 2
