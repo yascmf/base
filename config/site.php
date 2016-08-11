@@ -67,8 +67,13 @@ return [
         #静态资源CDN配置
         'cdn' => [
             //'on' or 'off'
-            'status' => 'off',
-            'url'    => 'http://yas.ystatic.cn/',
+            'status'  => 'on',
+            'url'     => '//s2.ystatic.cn/',
+
+            #匹配所有资源路径:
+            //'pattern' => '/.*/i',
+            #仅匹配 `lib/` 打头的资源路径:
+            'pattern' => '/^lib\/.*/i',
         ],
 
         #静态资源缩略别名，用于引用 路径较长 的资源，也为了方便后续静态类库的版本升级
@@ -90,7 +95,7 @@ return [
             'layer.js'            => 'lib/layer/2.2/layer.js',
             'chosen.js'           => 'lib/chosen/1.3.0/chosen.jquery.min.js',
             'chosen.css'          => 'lib/chosen/1.3.0/chosen.css',
-            'ckeditor.js'         => 'lib/ckeditor/ckeditor.js',
+            'ckeditor.js'         => 'back/plugins/ckeditor/ckeditor.js',
             'my97datepicker.js'   => 'lib/My97DatePicker/WdatePicker.js',
             'form.js'             => 'lib/form/jquery.form.js',
         ],

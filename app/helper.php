@@ -31,8 +31,8 @@ if (!function_exists('cdn')) {
      */
     function cdn($path, $sub_dir = '', $scheme_less = true)
     {
-        if (config('asset.asset_cdn.status') === 'on') {
-            $host = config('asset.asset_cdn.url') ? : app('url')->asset('');
+        if (config('site.asset.cdn.status') === 'on') {
+            $host = config('site.asset.cdn.url') ? : app('url')->asset('');
             return external_link($path, $sub_dir, $scheme_less, $host);
         } else {
             return internal_link($path, $sub_dir, $scheme_less);
@@ -88,7 +88,18 @@ if (!function_exists('external_link')) {
         } else {
             $root = $host;
         }
-        return rtrim($root, '/').'/'.$sub_dir.trim($path, '/');
+        $full_path = $sub_dir.trim($path, '/');
+        $pattern = config('site.asset.cdn.pattern');
+        if (is_string($pattern) && !empty($pattern)) {
+            $count = preg_match($pattern, $full_path);
+            if ($count > 0) {
+                return rtrim($root, '/').'/'.$sub_dir.trim($path, '/');
+            } else {
+                return internal_link($path, $sub_dir, $scheme_less);
+            }
+        } else {
+            return rtrim($root, '/').'/'.$sub_dir.trim($path, '/');
+        }
     }
 }
 

@@ -6,7 +6,9 @@
 
 ### 更新说明
 
-2016-07-01 在 `Github` 发布适配 `Laravel 5.2` 新版： [`YASCMF/BASE`](https://github.com/yascmf/base) ，启用新的仓库地址，`5.1` 旧版将进入存档期。更新的内容，可参考下面版本比较。
+* 2016-07-01 在 `Github` 发布适配 `Laravel 5.2` 新版： [`YASCMF/BASE`](https://github.com/yascmf/base) ，启用新的仓库地址，`5.1` 旧版将进入存档期。更新的内容，可参考下面版本比较。
+
+* 2016-08-11 剥离 `public\lib` 目录下公共静态资源到 `cdn` 或第三方域，以加快速度。如需要自行部署公共静态资源，请访问 [`YASCMF/ASSET`](https://github.com/yascmf/asset) 。
 
 ### 版本比较
 
