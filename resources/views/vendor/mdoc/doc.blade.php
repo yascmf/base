@@ -135,8 +135,8 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ _asset(ref('bootstrap.js')) }}"></script>
 
-    <script src="{{ _asset('vendor/mdoc/lib/highlight.js/highlight.pack.js?v=8.6') }}"></script>
-    <link href="{{ _asset('vendor/mdoc/lib/highlight.js/styles/monokai_sublime.css?v=8.6') }}" rel="stylesheet"> 
+    <script src="{{ _asset('lib/highlight.js/highlight.pack.js?v=9.6.0') }}"></script>
+    <link href="{{ _asset('lib/highlight.js/styles/monokai_sublime.css?v=9.6.0') }}" rel="stylesheet">
     <script >hljs.initHighlightingOnLoad();</script>
 
     <script type="text/javascript">
