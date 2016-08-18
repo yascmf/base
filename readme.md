@@ -50,7 +50,7 @@
 
 本系统基础开发版遵循 [MIT](http://opensource.org/licenses/MIT) 授权协议。
 
-### 打赏捐助
+### 打赏支持
 
 开源项目离不开各位朋友的支持，如果您觉得 YASCMF 系列软件/源码还不错，可以考虑打赏几元支持一下作者我。打赏捐助的钱会用于服务器和相关网站的运营。
 
@@ -58,7 +58,7 @@
 
 ![wechat_alipay](http://www.yascmf.com/assets/wechat_alipay.jpg)
 
-最新打赏捐助记录：http://www.yascmf.com/docs/donation.md
+最新打赏支持记录：http://www.yascmf.com/docs/donation.md
 
 
 ### 贡献代码
