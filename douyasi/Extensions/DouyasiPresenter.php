@@ -178,7 +178,7 @@ class DouyasiPresenter implements PresenterContract
                 */
                 for ($i = 1; $i <= 5; $i++) {
                     if ($cp == $i) {
-                        $html .=  $this->getActivePageWrapper($cp);
+                        $html .= $this->getActivePageWrapper($cp);
                     } else {
                         $html .= $this->getAvailablePageWrapper($this->getUrl($i), $i, null);
                     }

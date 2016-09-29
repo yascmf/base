@@ -98,6 +98,9 @@ return [
             'ckeditor.js'         => 'back/plugins/ckeditor/ckeditor.js',
             'my97datepicker.js'   => 'lib/My97DatePicker/WdatePicker.js',
             'form.js'             => 'lib/form/jquery.form.js',
+            'highlight.js'        => 'lib/highlight.js/highlight.pack.js?v=9.6.0',
+            'hl_monokai-sub.css'  => 'lib/highlight.js/styles/monokai-sublime.css?v=9.6.0',
+            'hl_github.css'       => 'lib/highlight.js/styles/github.css?v=9.6.0',
         ],
 
     ],
