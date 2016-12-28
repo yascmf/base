@@ -160,6 +160,7 @@ return [
          * Third Party Service Providers...
          */
         Douyasi\Providers\DouyasiServiceProvider::class,
+        Douyasi\Editor\EditorServiceProvider::class,
     ],
 
     /*

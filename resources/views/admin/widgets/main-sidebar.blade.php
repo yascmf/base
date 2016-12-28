@@ -37,20 +37,30 @@
             <li><a href="{{ site_url('dashboard', 'admin') }}"><i class="fa fa-dashboard"></i> <span>控制台</span> </a></li>
             <li><a href="{{ site_url('cache', 'admin') }}"><i class="fa fa-eraser"></i> <span>重建缓存</span> </a></li>
 
-            <!--内容管理 treeview-->
-            <li class="treeview">
+            <!--自定义二次开发导航区域 START-->
+
+            @foreach($menus = config('ecms.sidebar') as $menu)
+              <li class="treeview">
               <a href="#">
-                <i class="fa fa-edit"></i>
-                <span>开发演示</span>
-                <span class="label label-primary pull-right">3</span>
+                <i class='fa {{ $menu['icon'] }}'></i>
+                <span>{{ $menu['name'] }}</span>
+                <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ site_url('demo/form', 'admin') }}"><i class="fa fa-file-o"></i>表单</a></li>
-                <li><a href="{{ site_url('demo/icon', 'admin') }}"><i class="fa fa-file-o"></i>图标</a></li>
-                <li><a href="https://almsaeedstudio.com/" title="AdminLTE官网"><i class="fa fa-file-o"></i>更多</a></li>
+              @foreach($sub_menus = $menu['sub_menu'] as $sub)
+                @if($sub['can'] !== '')
+                  @can($sub['can'])
+                  <li><a href="@if(str_contains($sub['route'], '//')){{ $sub['route'] }}@else{{ _route($sub['route']) }}@endif" @if(str_contains($sub['route'], '//'))target="_blank"@endif><i class="fa {{ $menu['child_icon'] }}"></i>{{ $sub['name'] }}</a></li>
+                  @endcan
+                @else
+                  <li><a href="@if(str_contains($sub['route'], '//')){{ $sub['route'] }}@else{{ _route($sub['route']) }}@endif" @if(str_contains($sub['route'], '//')) target="_blank"@endif><i class="fa {{ $menu['child_icon'] }}"></i>{{ $sub['name'] }}</a></li>
+                @endif
+              @endforeach
               </ul>
             </li>
-            <!--//内容管理 treeview-->
+            @endforeach
+
+            <!--自定义二次开发导航区域 END-->
 
             <!--用户管理 treeview-->
             <li class="treeview">

@@ -45,11 +45,6 @@ return [
                     'route' => 'admin:article.index',
                     'can' => '@article',
                 ],
-                [
-                    'name' => '图链',
-                    'route' => 'admin:picture.index',
-                    'can' => '@picture',
-                ],
             ],
         ],
     ],
@@ -66,15 +61,5 @@ return [
             't' => '置顶',
         ],
 
-        //图片模型推荐位（可用于幻图、友链等图链内容）
-        'pictures' => [
-            'l' => '链接',
-            'f' => '幻灯',
-            's' => '滚动',
-            'h' => '热门',
-            'm' => '移动端',
-            'w' => '微信端',
-            'd' => '桌面端',
-        ],
     ],
 ];
