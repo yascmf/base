@@ -1,0 +1,274 @@
+/*
+ * @title       markdown_style
+ * @name        markdown_style.css
+ * @author      raoyc
+ * @link        http://raoyc.com/
+ * @description 芽丝轻博客站点markdown样式，基于Nicolas Hery的github markdown(https://github.com/nicolashery/markdownpad-github)样式修改而来
+ * @copyright   Copyright (c) 2014-2017
+ */
+/* BODY
+=============================================================================*/
+
+.art_con {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 10px 20px;
+  max-width: 800px;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+.art_con p, .art_con blockquote, .art_con ul, .art_con ol, .art_con dl, .art_con table, .art_con pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+.art_con h1, .art_con h2, .art_con h3, .art_con h4, .art_con h5, .art_con h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+.art_con h1 tt, .art_con h1 code, .art_con h2 tt, .art_con h2 code, .art_con h3 tt, .art_con h3 code, .art_con h4 tt, .art_con h4 code, .art_con h5 tt, .art_con h5 code, .art_con h6 tt, .art_con h6 code {
+  font-size: inherit;
+}
+
+.art_con h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+.art_con h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+.art_con h3 {
+  font-size: 18px;
+}
+
+.art_con h4 {
+  font-size: 16px;
+}
+
+.art_con h5 {
+  font-size: 14px;
+}
+
+.art_con h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+.art_con>h2:first-child, .art_con>h1:first-child, .art_con>h1:first-child+h2, .art_con>h3:first-child, .art_con>h4:first-child, .art_con>h5:first-child, .art_con>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.art_con a:first-child h1,. art_con a:first-child h2, .art_cona:first-child h3, .art_con a:first-child h4, .art_con a:first-child h5, .art_con a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.art_con h1+p, .art_con h2+p, .art_con h3+p, .art_con h4+p, .art_con h5+p, .art_con h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+.art_con a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+.art_con a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+.art_con ul, .art_con ol {
+  padding-left: 30px;
+}
+.art_con ol{
+  list-style-type: decimal;
+}
+.art_con ol li{
+  display: list-item;
+}
+.art_con ul li > :first-child,
+.art_con ol li > :first-child,
+.art_con ul li ul:first-of-type,
+.art_con ol li ol:first-of-type,
+.art_con ul li ol:first-of-type,
+.art_con ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+.art_con ul ul, .art_con ul ol, .art_con ol ol, .art_con ol ul {
+  margin-bottom: 0;
+}
+
+.art_con dl {
+  padding: 0;
+}
+
+.art_con dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+.art_con dl dt:first-child {
+  padding: 0;
+}
+
+.art_con dl dt>:first-child {
+  margin-top: 0px;
+}
+
+.art_con dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+.art_con dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+.art_con dl dd>:first-child {
+  margin-top: 0px;
+}
+
+.art_con dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+

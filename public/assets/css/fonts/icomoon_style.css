@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?ok80em');
+  src:  url('fonts/icomoon.eot?ok80em#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?ok80em') format('truetype'),
+    url('fonts/icomoon.woff?ok80em') format('woff'),
+    url('fonts/icomoon.svg?ok80em#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before {
+  content: "\e902";
+}
+.icon-pencil:before {
+  content: "\e905";
+}
+.icon-image:before {
+  content: "\e90d";
+}
+.icon-images:before {
+  content: "\e90e";
+}
+.icon-folder:before {
+  content: "\e92f";
+}
+.icon-folder-open:before {
+  content: "\e930";
+}
+.icon-price-tag:before {
+  content: "\e935";
+}
+.icon-price-tags:before {
+  content: "\e936";
+}
+.icon-calendar:before {
+  content: "\e953";
+}
+.icon-leaf:before {
+  content: "\e9a4";
+}
+.icon-attachment:before {
+  content: "\e9cd";
+}
+.icon-eye:before {
+  content: "\e9ce";
+}
+.icon-eye-blocked:before {
+  content: "\e9d1";
+}
+.icon-command:before {
+  content: "\ea4e";
+}
+.icon-shift:before {
+  content: "\ea4f";
+}
+.icon-ctrl:before {
+  content: "\ea50";
+}
+.icon-opt:before {
+  content: "\ea51";
+}
+.icon-checkbox-checked:before {
+  content: "\ea52";
+}
+.icon-checkbox-unchecked:before {
+  content: "\ea53";
+}
+.icon-share:before {
+  content: "\ea82";
+}
+

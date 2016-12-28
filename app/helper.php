@@ -482,3 +482,197 @@ function check_url($url1, $url2)
 # 以下从原有旧版 YASCMF 里面弄过来的 END
 # ----------------------------------------
 */
+
+
+/*
+# ----------------------------------------
+# YASCMF 自定义标签及其辅助方法 START
+# ----------------------------------------
+*/
+
+/**
+ * 对文章正文进行摘要截取处理
+ *
+ * @param string $content
+ * @param boolean $is_marked
+ */
+function excerpt($content, $is_marked = true)
+{
+    if ($is_marked) {
+        return chinese_excerpt(htmlspecialchars_decode(mark2html($content)));
+    } else {
+        return chinese_excerpt(htmlspecialchars_decode($content));
+    }
+}
+
+/**
+ * Markdown 格式的转换成 HTML , 使用内置的 `parsedown-extra` php扩展包来解析
+ *
+ * @param string $content
+ * @return string
+ */
+function mark2html($content)
+{
+    $parsedown = app('Parsedown');
+    return $parsedown->text($content);
+    //return with(new Parsedown())->text($content);
+}
+
+/**
+ * 获取分类
+ */
+function category($slug)
+{
+    $model = app()->make('Douyasi\Models\Category');
+    $category = $model->where('slug', $slug)->first();
+    if ($category) {
+        return $category;
+    } else {
+        return null;
+    }
+}
+/**
+ * 获取分类组
+ */
+function categories(array $ids = [])
+{
+    $model = app()->make('Douyasi\Models\Category');
+    if (is_array($ids) && !empty($ids)) {
+        $categories = $model->whereIn('id', $ids)
+                            ->orderBy('created_at', 'DESC')
+                            ->orderBy('sort', 'DESC')
+                            ->get();
+        if ($categories->isEmpty()) {
+            return null;
+        } else {
+            return $categories;
+        }
+    } else {
+        $categories = $model->orderBy('created_at', 'DESC')
+                            ->orderBy('sort', 'DESC')
+                            ->get();
+        if ($categories->isEmpty()) {
+            return null;
+        } else {
+            return $categories;
+        }
+    }
+}
+
+/**
+ * 获取文章
+ */
+function article($slug)
+{
+    $model = app()->make('Douyasi\Models\Article');
+    $article = $model->where('slug', $slug)->first();
+    if ($article) {
+        return $article;
+    } else {
+        return null;
+    }
+}
+/**
+ * 获取文章列表
+ */
+function articles($page_size = 3, $cid = null)
+{
+    $query = app('db')->table('articles')
+                        ->select([
+                            'articles.id',
+                            'articles.title',
+                            'articles.flag',
+                            'articles.thumb',
+                            'articles.slug',
+                            'articles.cid',
+                            'articles.description',
+                            'articles.content',
+                            'articles.created_at',
+                            'articles.updated_at',
+                            'categories.name as cate_name',
+                            'categories.slug as cate_slug',
+                        ])
+                        ->leftJoin('categories', 'categories.id', '=', 'articles.cid');
+    if (!empty($cid)) {
+        $query = $query->where('cid', $cid);
+    }
+    return $query->orderBy('articles.created_at', 'DESC')
+                ->paginate($page_size);
+}
+/**
+ * 获取特定flag的文章组
+ */
+function flag_articles($limit = 3, $cid = null, array $flags = [], array $no_flags = [])
+{
+    $query = app('db')->table('articles')
+                        ->select([
+                            'articles.id',
+                            'articles.title',
+                            'articles.flag',
+                            'articles.thumb',
+                            'articles.slug',
+                            'articles.cid',
+                            'articles.description',
+                            'articles.content',
+                            'articles.created_at',
+                            'articles.updated_at',
+                            'categories.name as cate_name',
+                            'categories.slug as cate_slug',
+                        ])
+                        ->leftJoin('categories', 'categories.id', '=', 'articles.cid');
+    $query = value(function() use ($query, $cid, $flags, $no_flags){
+        if (!empty($cid)) {
+            $query = $query->where('cid', $cid);
+        }
+        if (is_array($flags) && !empty($flags)) {
+            foreach($flags as $f)
+            {
+                $query = $query->where('flag', 'LIKE', '%'.$f.'%');
+            }
+        }
+        if (is_array($no_flags) && !empty($no_flags)) {
+            foreach($no_flags as $nf)
+            {
+                $query = $query->where('flag', 'NOT LIKE', '%'.$nf.'%');
+            }
+        }
+        return $query;
+    });
+    return $query->orderBy('articles.created_at', 'DESC')
+                ->take($limit)
+                ->get();
+}
+
+/**
+ * 获取文章slug
+ *
+ * @param string $category_slug 符合/^[a-z0-9\-_]{3,20}$/正则的slug
+ * @param string $article_slug 符合/^[a-z0-9\-_]{1,120}$/正则的slug
+ * @param string $site
+ * @param string $suffix
+ * @return string
+ */
+function slug($category_slug, $article_slug = null, $suffix = '.html')
+{
+    if ($article_slug === null) {
+        return '/'.$category_slug;
+    } else {
+        return '/'.$category_slug.'/'.$article_slug.''.$suffix;
+    }
+}
+
+
+function slug_url($category_slug, $article_slug = null, $scheme_less = true, $suffix = '.html')
+{
+    if ($article_slug === null) {
+        return _route('desktop:{category}', [$category_slug], $scheme_less);
+    } else {
+        return _route('desktop:{categroy}/{slug}', [$category_slug, $article_slug.''.$suffix], $scheme_less);
+    }
+}
+
+/*
+# ----------------------------------------
+# YASCMF 自定义标签及其辅助方法 END
+# ----------------------------------------
+*/

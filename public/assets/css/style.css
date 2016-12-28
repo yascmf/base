@@ -1,0 +1,243 @@
+/*
+ * @title       style
+ * @name        style.css
+ * @author      raoyc
+ * @link        http://raoyc.com/
+ * @description 芽丝轻博客站点通用样式
+ * @copyright   Copyright (c) 2014-2017
+ */
+@charset "utf-8";
+@import url("lib/reset.css");
+
+/*write some styles*/
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;} /*清除浮动*/
+a{color:#333; text-decoration:none;}
+::selection {background:#000;color:#fff;}
+::-moz-selection {background:#000;color:#fff;}
+::-webkit-selection {background:#000;color:#fff;}
+a{text-decoration:none;}
+
+body{
+    font-size: 14px;
+    line-height: 20px;
+    color: #555;
+    overflow-x: hidden;
+    background-color: #ffffff;
+    font-family: "微软雅黑", "Microsoft Yahei","Helvetica Neue",Helvetica,Georgia,Arial,sans-serif;
+}
+body.paper {
+    background-color: #e6e6e6;
+}
+body.paper:after {
+    content: "";
+    height: 22px;
+    display: block;
+}
+
+#con_wrapper{
+    max-width: 800px;
+    margin: 22px auto 0 auto;
+    -webkit-font-smoothing: subpixel-antialiased;
+    box-shadow: 0px 6px 12px 3px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    text-rendering: optimizeLegibility;
+    pointer-events: auto;
+    -webkit-user-select: auto;
+    overflow: visible;
+}
+#con_wrapper #r_con{
+    padding-top: 52px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+#r_con::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#r_con .header{
+    font-size: 24px;
+    line-height: 60px;
+    border-bottom: 2px solid #676767;
+    color: #000000;
+}
+#r_con .article, #r_con .artlist_content{
+    line-height: 30px;
+}
+.artlist_content .search_desc{
+    margin-top: 15px;
+    line-height: 30px;
+    padding: 0 20px;
+    font-size: 14px;
+}
+.search_desc span.light_blue{
+    color: #6796cb;
+    font-size: 14px;
+}
+.artlist_content .post_summary {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #313131;
+    height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+    color: #ffffff;
+    text-align: center;
+    clear: both;
+}
+.artlist_content ul.art_list{
+    font-size: 14px;
+    line-height: 1.6;
+    color: #b3b3b3;
+    padding: 10px 20px;
+}
+.art_list li{
+    display: block;
+    clear: both;
+}
+.art_list li h3{
+    font-size: 22px;
+    line-height: 50px;
+    font-weight: bold;
+}
+.art_list li h3 a{
+    text-decoration: none;
+    color: #313131;
+}
+.art_list li h3 a:hover{
+    text-decoration: none;
+    color: #6796cb;
+}
+.art_list li .art_desc{
+    color: #474747;
+    font-size: 14px;
+    line-height: 32px;
+}
+.art_list li .split_border{
+    max-width: 600px;
+    border-bottom: 1px dashed #999;
+    margin: 20px 0px;
+}
+.art_desc p{
+    font-size: 14px;
+}
+.artlist_content .page{
+    clear: both;
+}
+.article .art_head{
+    font-size: 18px;
+    color: #313131;
+    max-width: 800px;
+    text-align: center;
+    line-height: 50px;
+}
+.art_head .post_time{
+    background-color: #313131;
+    width: 96px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    color: #ffffff;
+}
+
+#r_con .art_meta{
+    line-height: 28px;
+    font-size: 12px;
+    padding: 6px;
+}
+.art_meta span{
+    float: left;
+    margin-top: 5px;
+    font-size: 18px;
+    color: #999999;
+}
+.art_meta a{
+    float: left;
+    display: inline-block;
+    padding:0 10px;
+    margin: 0 10px;
+    text-decoration: none;
+    line-height: 28px;
+    height: 28px;
+    color: #313131;
+}
+.art_meta a:hover {
+    color: #999;
+}
+#r_con .copyright_text{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    height: auto;
+    color: #949494;
+    font-size: 12px;
+    border: 1px solid #e9e9e9;
+    box-shadow: 0px 1px 2px #f6f6f6;
+}
+.copyright_text a{
+    color: #949494;
+}
+.copyright_text a:hover{
+    color:#e27689
+}
+#r_con .footer{
+    margin: 20px auto;
+    line-height: 28px;
+    text-align: center;
+    font-size: 14px;
+}
+.footer p a{
+    color: #808080;
+    text-decoration: none;
+}
+.footer p a:hover{
+    color: #000000;
+}
+.footer p{
+    line-height: 28px;
+    margin: 0px auto;
+}
+.footer p.slogan{
+    color: #aaacb1;
+}
+
+/*移植bootstrap简单分页样式*/
+.pager {
+  padding-left: 0;
+  margin: 20px 0;
+  text-align: center;
+  list-style: none;
+}
+.pager li {
+  display: inline;
+}
+.pager li > a,
+.pager li > span {
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+}
+.pager li > a:hover,
+.pager li > a:focus {
+  text-decoration: none;
+  background-color: #eee;
+}
+.pager .next > a,
+.pager .next > span {
+  float: right;
+}
+.pager .previous > a,
+.pager .previous > span {
+  float: left;
+}
+.pager .disabled > a,
+.pager .disabled > a:hover,
+.pager .disabled > a:focus,
+.pager .disabled > span {
+  color: #777;
+  cursor: not-allowed;
+  background-color: #fff;
+}

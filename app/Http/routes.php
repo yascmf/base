@@ -50,6 +50,12 @@ Route::group(['prefix' => $_dp, 'namespace' => 'Desktop', 'middleware' => ['bloc
     //设置语言版本
     Route::get('lang', 'HomeController@getLang');
 
+    # 展示分类
+    Route::get('{category}', 'HomeController@getCategory');
+
+    # 展示文章
+    Route::get('{category}/{article}.html', 'HomeController@getArticle');
+
 });
 /*-----
 桌面站点路由群组 END
