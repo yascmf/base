@@ -113,6 +113,28 @@ Route::group(['prefix' => $_ap, 'namespace' => 'Admin', 'middleware' => ['block:
         Route::post('upload/picture', 'AssistantController@postUploadPicture');
         Route::post('upload/document', 'AssistantController@postUploadDocument');
 
+            /*
+             * ----------------------------------------
+             * 自定义二次开发区域 START
+             * ----------------------------------------
+             */
+
+            //内容管理
+            #分类
+            Route::resource('category', 'CategoryController');
+            #文章
+            Route::resource('article', 'ArticleController');
+            #图链
+            Route::resource('picture', 'PictureController');
+
+            //自定义模型管理
+            
+            /*
+             * ----------------------------------------
+             * 自定义二次开发区域 END
+             * ----------------------------------------
+             */
+
         //用户管理
         Route::get('me', 'MeController@getMe');
         Route::put('me', 'MeController@putMe');
