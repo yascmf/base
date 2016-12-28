@@ -10,6 +10,11 @@
 
 * 2016-08-11 剥离 `public\lib` 目录下公共静态资源到 `cdn` 或第三方域，以加快速度。如需要自行部署公共静态资源，请访问 [`YASCMF/ASSET`](https://github.com/yascmf/asset) 。
 
+* 2016-12-28 完成后台路线图中文章、分类模块，借助于 `editor.md` 可以很方便地使用 `markdown` 撰写博客；官方提供一套异常简洁的轻博客模板。
+
+![](http://www.yascmf.com/uploads/content/20161228/586383321ad29_38o.png)
+
+
 ### 版本比较
 
 新的基础开发版 (`yascmf/base`) 与旧版 (`douyasi/yascmf`) 有何区别？

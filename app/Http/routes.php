@@ -39,30 +39,6 @@ Route::group(['prefix' => config('site.route.prefix.doc', 'docs'), 'middleware' 
 
 
 /*-----
-桌面站点路由群组 START
------*/
-$_dp = config('site.route.prefix.desktop', '');
-Route::group(['prefix' => $_dp, 'namespace' => 'Desktop', 'middleware' => ['block:desktop', 'web']], function () {
-
-    //桌面站主页
-    Route::get('/', 'HomeController@getIndex');
-
-    //设置语言版本
-    Route::get('lang', 'HomeController@getLang');
-
-    # 展示分类
-    Route::get('{category}', 'HomeController@getCategory');
-
-    # 展示文章
-    Route::get('{category}/{article}.html', 'HomeController@getArticle');
-
-});
-/*-----
-桌面站点路由群组 END
------*/
-
-
-/*-----
 API站点路由群组 START
 -----*/
 $_mp = config('site.route.prefix.api', 'api');
@@ -75,6 +51,9 @@ Route::group(['prefix' => $_mp, 'namespace' => 'API', 'middleware' => ['block:ap
 
     //身份证查询服务
     Route::get('identity-card', 'HomeController@getIdentityCard');
+
+    //汉字转拼音
+    Route::get('pinyin', 'HomeController@getPinyin');
 });
 /*-----
 API站点路由群组 END
@@ -158,4 +137,28 @@ Route::group(['prefix' => $_ap, 'namespace' => 'Admin', 'middleware' => ['block:
 });
 /*-----
 管理后台站点路由群组 END
+-----*/
+
+
+/*-----
+桌面站点路由群组 START
+-----*/
+$_dp = config('site.route.prefix.desktop', '');
+Route::group(['prefix' => $_dp, 'namespace' => 'Desktop', 'middleware' => ['block:desktop', 'web']], function () {
+
+    //桌面站主页
+    Route::get('/', 'HomeController@getIndex');
+
+    //设置语言版本
+    Route::get('lang', 'HomeController@getLang');
+
+    # 展示分类
+    Route::get('{category}', 'HomeController@getCategory');
+
+    # 展示文章
+    Route::get('{category}/{article}.html', 'HomeController@getArticle');
+
+});
+/*-----
+桌面站点路由群组 END
 -----*/
