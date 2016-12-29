@@ -71,6 +71,8 @@
                         </td>
                         <td class="text-red">
                           @if(null !== $user->roles->first())  {{-- 某些错误情况下，会造成管理用户没有角色 --}}
+                          <a class="layer_open" data-title="{{ $user->username }} / {{ $user->nickname }} 管理用户权限详情" href="{{ _route('admin:user.purview.show', $user->roles->first()->id) }}"><i class="fa fa-fw fa-info-circle" title="管理用户权限详情"></i></a>
+
                           {{ $user->roles->first()->name }}({{ $user->roles->first()->display_name }})
                           @else
                           NULL(空)
@@ -96,3 +98,23 @@
               </div>
 @stop
 
+@section('extraSection')
+  <!--引入layer插件-->
+  <script src="{{ _asset(ref('layer.js')) }}"></script>
+@stop
+
+@section('filledScript')
+        $('a.layer_open').on('click', function(evt){
+            evt.preventDefault();
+            var src = $(this).attr("href");
+            var title = $(this).data('title');
+            layer.open({
+                type: 2,
+                title: title,
+                shadeClose: true,
+                shade: 0.8,
+                area: ['800px', '720px'],
+                content: src //iframe的url
+            });
+        });
+@stop

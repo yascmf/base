@@ -125,6 +125,7 @@ Route::group(['prefix' => $_ap, 'namespace' => 'Admin', 'middleware' => ['block:
         Route::put('me', 'MeController@putMe');
 
         Route::resource('user', 'UserController');
+        Route::get('user/purview/{rid}', 'UserController@getPurview');
         Route::resource('role', 'RoleController');
         Route::resource('permission', 'PermissionController');
 

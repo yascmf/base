@@ -7,6 +7,7 @@ use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\Loggers\SystemLogger;
 use App\Repositories\UserRepository;
+use App\Repositories\RoleRepository;
 use Gate;
 
 /**
@@ -17,6 +18,12 @@ use Gate;
 class UserController extends BackController
 {
 
+    /**
+     * The RoleRepository instance.
+     *
+     * @var App\Repositories\RoleRepository
+     */
+    protected $role;
 
     /**
      * The UserRepository instance.
@@ -26,15 +33,18 @@ class UserController extends BackController
     protected $user;
 
     public function __construct(
-        UserRepository $user)
+        UserRepository $user,
+        RoleRepository $role)
     {
         parent::__construct();
         $this->user = $user;
+        $this->role = $role;
+
         if (Gate::denies('@user')) {
             $this->middleware('deny403');
         }
     }
-    
+
 
     /**
      * Display a listing of the resource.
@@ -158,5 +168,18 @@ class UserController extends BackController
         */
         return redirect()->to(site_path('user', 'admin'))->with('message', '修改管理员成功！');
 
+    }
+
+    /**
+     * Get role's purview of specific role
+     * @param  int $rid
+     * @return Response
+     */
+    public function getPurview($rid)
+    {
+        $role = $this->role->edit($rid);
+        $permissions = $this->role->permissions();
+        $cans = $this->role->getRoleCans($role);
+        return view('admin.back.user.purview', compact('role', 'permissions', 'cans'));
     }
 }
