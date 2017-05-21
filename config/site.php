@@ -22,10 +22,10 @@ return [
 
         #路由域名绑定
         'domain' => [
-            'desktop' => env('DESKTOP_SITE', 'http://yascmf.dev/'),
-            'api'     => env('API_SITE', 'http://yascmf.dev/'),
-            'admin'   => env('ADMIN_SITE', 'http://yascmf.dev/'),
-            'doc'     => env('DOC_SITE', 'http://yascmf.dev/'),
+            'desktop' => env('DESKTOP_SITE', 'http://localhost:8000/'),
+            'api'     => env('API_SITE', 'http://localhost:8000/'),
+            'admin'   => env('ADMIN_SITE', 'http://localhost:8000/'),
+            'doc'     => env('DOC_SITE', 'http://localhost:8000/'),
         ],
 
         #路由前缀绑定

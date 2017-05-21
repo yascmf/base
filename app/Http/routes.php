@@ -21,7 +21,9 @@
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-
+Route::get('/', function () {
+    return url('/');
+});
 /*-----
 文档站点路由群组 START
 -----*/
