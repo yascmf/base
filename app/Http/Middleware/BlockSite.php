@@ -26,7 +26,7 @@ class BlockSite
      */
     public function handle($request, Closure $next, $site)
     {
-        logger()->info('url is '.url('/').' env site is '.env('DESKTOP_SITE'));
+
         $host = ltrim(url('/'), 'http:');
         $host = ltrim($host, 'https:');
         $site_host = ltrim(config('site.route.domain.'.$site), 'http:');
