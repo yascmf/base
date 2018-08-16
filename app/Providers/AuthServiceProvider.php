@@ -19,19 +19,18 @@ class AuthServiceProvider extends ServiceProvider
     ];
 
     /**
-     * Register any application authentication / authorization services.
+     * Register any authentication / authorization services.
      *
-     * @param  \Illuminate\Contracts\Auth\Access\Gate  $gate
      * @return void
      */
-    public function boot(GateContract $gate)
+    public function boot()
     {
-        $this->registerPolicies($gate);
+        $this->registerPolicies();
 
         //
         $permissions = Permission::with('roles')->get();
         foreach ($permissions as $permission) {
-            $gate->define($permission->name, function($user) use ($permission) {
+            Gate::define($permission->name, function($user) use ($permission) {
                 return $user->hasPermission($permission);
             });
         }
