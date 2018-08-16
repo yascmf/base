@@ -108,7 +108,7 @@ class UserRolePermissionSeeder extends Seeder
         $permissions = $this->permissions;
         $permissionsData = [];
         foreach ($permissions as $k => $v) {
-            $data[] = [
+            $permissionsData[] = [
                 'name' => $k,
                 'display_name' => $v,
                 'created_at' => $time,
