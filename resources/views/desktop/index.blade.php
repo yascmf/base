@@ -19,7 +19,7 @@
                 @endforeach
             </ul>
             <div class="page clearfix">
-                @include('desktop.parts.pagination', ['paginator' => $articles])
+                {{ $articles->links('desktop.pagination.simple') }}
             </div>
         </div>
 
