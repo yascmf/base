@@ -330,13 +330,15 @@ if (!function_exists('deny')) {
  * @param array $messages 未格式化之前数组
  * @return string 格式化之后字符串
  */
-function format_message($messages)
-{
-    $reason = ' ';
-    foreach ($messages->all('<span class="text_error">:message</span>') as $message) {
-        $reason .= $message.' ';
+if (!function_exists('format_message')) {
+    function format_message($messages)
+    {
+        $reason = ' ';
+        foreach ($messages->all('<span class="text_error">:message</span>') as $message) {
+            $reason .= $message.' ';
+        }
+        return $reason;
     }
-    return $reason;
 }
 
 /**
@@ -346,14 +348,15 @@ function format_message($messages)
  * @param array $json 原始json数组数据
  * @return array
  */
-function format_json_message($messages, $json)
-{
-    $reason = format_message($messages);
-    $info = '失败原因为：'.$reason;
-    $json = array_replace($json, ['info' => $info]);
-    return $json;
+if (!function_exists('format_json_message')) {
+    function format_json_message($messages, $json)
+    {
+        $reason = format_message($messages);
+        $info = '失败原因为：'.$reason;
+        $json = array_replace($json, ['info' => $info]);
+        return $json;
+    }
 }
-
 /**
  * 文章推荐位 flag html标签化
  * 
