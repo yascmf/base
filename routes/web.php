@@ -98,11 +98,11 @@ Route::group(['prefix' => $_ap, 'namespace' => 'Admin', 'middleware' => ['block:
 
             //内容管理
             #分类
-            Route::resource('category', 'CategoryController');
+            Route::resource('category', 'CategoryController')->middleware('can:@category');
             #文章
-            Route::resource('article', 'ArticleController');
+            Route::resource('article', 'ArticleController')->middleware('can:@article');
             #图链
-            Route::resource('picture', 'PictureController');
+            Route::resource('picture', 'PictureController')->middleware('can:@picture');
 
             //自定义模型管理
             
@@ -113,18 +113,18 @@ Route::group(['prefix' => $_ap, 'namespace' => 'Admin', 'middleware' => ['block:
              */
 
         //用户管理
-        Route::get('me', 'MeController@getMe');
-        Route::put('me', 'MeController@putMe');
+        Route::get('me', 'MeController@getMe')->middleware('can:@me');
+        Route::put('me', 'MeController@putMe')->middleware('can:me-write');
 
-        Route::resource('user', 'UserController');
-        Route::get('user/purview/{rid}', 'UserController@getPurview');
+        Route::resource('user', 'UserController')->middleware('can:@user');
+        Route::get('user/purview/{rid}', 'UserController@getPurview')->middleware('can:@user');
         Route::resource('role', 'RoleController');
-        Route::resource('permission', 'PermissionController');
+        Route::resource('permission', 'PermissionController')->middleware('can:@permission');
 
         //系统管理
-        Route::get('option', 'OptionController@getOption');
-        Route::put('option', 'OptionController@putOption');
-        Route::resource('log', 'LogController');
+        Route::get('option', 'OptionController@getOption')->middleware('can:@option');
+        Route::put('option', 'OptionController@putOption')->middleware('can:@option-write');
+        Route::resource('log', 'LogController')->middleware('can:@log');
     });
 
 });
