@@ -26,7 +26,7 @@ class ChangeLocale extends Job
             $lng = 'zh-CN';
         }
         if ($lang !== $lng) {
-            session()->set($sid, $lng);
+            session()->put($sid, $lng);
         }
     }
 
