@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9050ba199b3004e2c4ac494a7e5ac5bb",
+    "content-hash": "d7dffe446c89678b46e867ca92370e49",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -159,48 +159,6 @@
                 "string"
             ],
             "time": "2018-01-09T20:05:19+00:00"
-        },
-        {
-            "name": "douyasi/identity-card",
-            "version": "2.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/douyasi/identity-card.git",
-                "reference": "aafec3456cb03e518666d9669297ae8ecd50783f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/douyasi/identity-card/zipball/aafec3456cb03e518666d9669297ae8ecd50783f",
-                "reference": "aafec3456cb03e518666d9669297ae8ecd50783f",
-                "shasum": ""
-            },
-            "require": {
-                "ext-pdo": "*",
-                "ext-pdo_sqlite": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Douyasi\\IdentityCard\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "raoyc",
-                    "email": "rayc2009@gmail.com"
-                }
-            ],
-            "description": "Chinese Identity Card package",
-            "keywords": [
-                "Chinese",
-                "identity",
-                "personal identity card"
-            ],
-            "time": "2018-05-13T06:12:49+00:00"
         },
         {
             "name": "douyasi/laravel-editor-md",
