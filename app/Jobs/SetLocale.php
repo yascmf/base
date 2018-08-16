@@ -4,10 +4,10 @@ namespace App\Jobs;
 
 use App\Jobs\Job;
 use Request;
-use Illuminate\Contracts\Bus\SelfHandling;
+use Illuminate\Console\Command;
 //use Douyasi\Locator\PreferredLanguageDetector;
 
-class SetLocale extends Job implements SelfHandling
+class SetLocale extends Job
 {
     /**
      * Execute the command.
