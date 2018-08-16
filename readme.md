@@ -14,7 +14,7 @@
 
 ![](http://www.yascmf.com/uploads/content/20161228/586383321ad29_38o.png)
 
-* 2017 由于工作原因，暂停更新，但会对个人或商业用户项目提供技术支持。
+* 2017 本年度由于工作原因，暂停更新，但会对个人或商业用户项目提供技术支持。
 
 * 2018-07 开始适配 `Laravel 5.5 LTS` 版本的开发，同时开始前后端分离版本（[YASCMF/API](https://github.com/yascmf/api) + [YASCMF/ADMIN](https://github.com/yascmf/admin)）的开发。
 
