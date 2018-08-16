@@ -25,9 +25,6 @@ class LogController extends BackController
     {
         parent::__construct();
         $this->system = $system;
-        if (Gate::denies('@log')) {
-            $this->middleware('deny403');
-        }
     }
 
 

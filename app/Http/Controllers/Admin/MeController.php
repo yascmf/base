@@ -28,9 +28,6 @@ class MeController extends BackController
         UserRepository $user)
     {
         parent::__construct();
-        if (Gate::denies('@me')) {
-            $this->middleware('deny403');
-        }
         $this->user = $user;
     }
 

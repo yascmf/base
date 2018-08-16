@@ -33,7 +33,7 @@ class BlockSite
         $site_host = ltrim($site_host, 'https:');
         $site_host = rtrim($site_host, '/');
         try {
-            if($host !== $site_host) {
+            if ($host !== $site_host) {
                 throw new Exception('403 site blocked !');
             }
         } catch (Exception $e) {

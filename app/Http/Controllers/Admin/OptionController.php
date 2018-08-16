@@ -26,9 +26,6 @@ class OptionController extends BackController
     {
         parent::__construct();
         $this->system = $system;
-        if (Gate::denies('@option')) {
-            $this->middleware('deny403');
-        }
     }
 
     public function getOption()

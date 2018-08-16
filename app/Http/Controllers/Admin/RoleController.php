@@ -28,10 +28,6 @@ class RoleController extends BackController
     {
         parent::__construct();
         $this->role = $role;
-
-        if (Gate::denies('@role')) {
-            $this->middleware('deny403');
-        }
     }
 
     public function index()

@@ -22,10 +22,6 @@ class ArticleController extends BackController
     public function __construct()
     {
         parent::__construct();
-
-        if (Gate::denies('@article')) {
-            $this->middleware('deny403');
-        }
     }
 
 

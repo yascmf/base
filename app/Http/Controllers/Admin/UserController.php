@@ -39,10 +39,6 @@ class UserController extends BackController
         parent::__construct();
         $this->user = $user;
         $this->role = $role;
-
-        if (Gate::denies('@user')) {
-            $this->middleware('deny403');
-        }
     }
 
 

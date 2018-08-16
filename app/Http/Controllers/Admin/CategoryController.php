@@ -21,10 +21,6 @@ class CategoryController extends BackController
     public function __construct()
     {
         parent::__construct();
-
-        if (Gate::denies('@category')) {
-            $this->middleware('deny403');
-        }
     }
 
     public function index(Request $request)

@@ -26,9 +26,6 @@ class PermissionController extends BackController
     {
         parent::__construct();
         $this->role = $role;
-        if (Gate::denies('@permission')) {
-            $this->middleware('deny403');
-        }
     }
 
     public function index()
