@@ -4,10 +4,14 @@
 
 >   欢迎 Watching/Star/Fork 本项目，同时也欢迎PHP爱好者、`YASCMF` 开发使用者入群交流，官方QQ群：260655062 。
 
-### 更新说明
+### 更新日志
 
-* 2016-07-01 在 `Github` 发布适配 `Laravel 5.2` 新版： [`YASCMF/BASE`](https://github.com/yascmf/base) ，启用新的仓库地址，`5.1` 旧版将进入存档期。更新的内容，可参考下面版本比较。
+- 2016年 完成 `Laravel 5.2.x` 适配版本，并断续修补漏洞。
+- 2017年 由于工作原因，暂停更新。
+- 2018年07月 开始前后端分离版本（[YASCMF/API](https://github.com/yascmf/api) + [YASCMF/ADMIN](https://github.com/yascmf/admin)）的开发。
+- 2018年08月 使用 `migration` 来迁移数据库，并发布 `LTS 5.5 release` 版本。
 
+<<<<<<< HEAD
 * 2016-08-11 剥离 `public\lib` 目录下公共静态资源到 `cdn` 或第三方域，以加快速度。如需要自行部署公共静态资源，请访问 [`YASCMF/ASSET`](https://github.com/yascmf/asset) 。
 
 * 2016-12-28 完成后台路线图中文章、分类模块，借助于 `editor.md` 可以很方便地使用 `markdown` 撰写博客；官方提供一套异常简洁的轻博客模板。
@@ -40,6 +44,9 @@
 6. 使用 `Scheme-Less URL` ，方便以后 `http/https` 部署；支持静态资源 `CDN` 部署，提供诸多助手函数辅助网址与资源链接生成。
 
 7. 修复旧版后台所存在的一些 `BUG` `typo` 错误，同时旧版 `5.1`将进入存档期。
+=======
+详细见 [change-log](https://github.com/yascmf/docs/blob/master/change-log.md) 。
+>>>>>>> master
 
 ### 安装与演示
 

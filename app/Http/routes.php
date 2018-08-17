@@ -48,12 +48,6 @@ Route::group(['prefix' => $_mp, 'namespace' => 'API', 'middleware' => ['block:ap
 
     Route::get('/', 'HomeController@getIndex');
 
-    //IP查询服务
-    Route::get('ip', 'HomeController@getIP');
-
-    //身份证查询服务
-    Route::get('identity-card', 'HomeController@getIdentityCard');
-
     //汉字转拼音
     Route::get('pinyin', 'HomeController@getPinyin');
 });
