@@ -11,42 +11,7 @@
 - 2018年07月 开始前后端分离版本（[YASCMF/API](https://github.com/yascmf/api) + [YASCMF/ADMIN](https://github.com/yascmf/admin)）的开发。
 - 2018年08月 使用 `migration` 来迁移数据库，并发布 `LTS 5.5 release` 版本。
 
-<<<<<<< HEAD
-* 2016-08-11 剥离 `public\lib` 目录下公共静态资源到 `cdn` 或第三方域，以加快速度。如需要自行部署公共静态资源，请访问 [`YASCMF/ASSET`](https://github.com/yascmf/asset) 。
-
-* 2016-12-28 完成后台路线图中文章、分类模块，借助于 `editor.md` 可以很方便地使用 `markdown` 撰写博客；官方提供一套异常简洁的轻博客模板。
-
-![](http://www.yascmf.com/uploads/content/20161228/586383321ad29_38o.png)
-
-* 2017 本年度由于工作原因，暂停更新，但会对个人或商业用户项目提供技术支持。
-
-* 2018-07 开始适配 `Laravel 5.5 LTS` 版本的开发，同时开始前后端分离版本（[YASCMF/API](https://github.com/yascmf/api) + [YASCMF/ADMIN](https://github.com/yascmf/admin)）的开发。
-
-* 2018-08-16 使用 `migration` 来迁移数据库。
-
-
-### 版本比较
-
-新的基础开发版 (`yascmf/base`) 与旧版 (`douyasi/yascmf`) 有何区别？
-
-新版与旧版主要区别在以下几点：
-
-1. 新的基础开发版移除旧版后台内容（文章/单页/分类等）模版与前台网站，以方便开发者进行最小化的二次开发。
-
-2. 使用到一些 `Laravel 5.2` 新特性，路由支持多中间件群组，实现同一源码多站绑定，多站路由过滤，使用不同站点可访问资源不同。
-
-3. 废弃第三方 `entrust` 权限控制扩展包，改用原生的模型方法配合 `Gate` 实现角色权限控制；角色权限控制更加细分化（可到菜单显示、模型读写、搜索等）。
-
-4. 管理后台已实现自由切换肤色与布局；静态资源分类更加合理；删除了很多旧版无用的静态资源文件；
-
-5. 更加完善的文档资源，二次开发文档已同步在[文档仓库](https://github.com/yascmf/docs)中。
-
-6. 使用 `Scheme-Less URL` ，方便以后 `http/https` 部署；支持静态资源 `CDN` 部署，提供诸多助手函数辅助网址与资源链接生成。
-
-7. 修复旧版后台所存在的一些 `BUG` `typo` 错误，同时旧版 `5.1`将进入存档期。
-=======
 详细见 [change-log](https://github.com/yascmf/docs/blob/master/change-log.md) 。
->>>>>>> master
 
 ### 安装与演示
 
