@@ -391,24 +391,6 @@ function chinese_excerpt($content)
 }
 
 /**
- * 芽丝CMF后台分页helper
- *
- * @param Illuminate\Support\Collection $model
- * @param array $data 追加的参数数组
- * @return string 返回分页
- */
-function page_links($model, $data = [])
-{
-    $presenter = new \Douyasi\Extensions\DouyasiPresenter($model);
-    if (empty($data)) {
-        $links = $model->render($presenter);
-    } else {
-        $links = $model->appends($data)->render($presenter);
-    }
-    return $links;
-}
-
-/**
  * 检查 特定数组 特定键名的键值 是否与待比较的值一致
  * 此helper主要用于角色权限特征判断
  *
