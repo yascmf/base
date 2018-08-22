@@ -20,7 +20,7 @@ class SystemLog extends Model
      * 操作用户
      * 模型对象关系：系统日志对应的操作用户
      *
-     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {

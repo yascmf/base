@@ -74,6 +74,7 @@ if (!function_exists('external_link')) {
      * @param string $path
      * @param string $sub_dir
      * @param boolean $scheme_less
+     * @param string $host
      * @return string
      */
     function external_link($path, $sub_dir, $scheme_less = true, $host = '')
@@ -108,6 +109,12 @@ if (!function_exists('_asset')) {
 
     /**
      * alias helper for site asset , equal to cdn()
+     *
+     * @see cdn()
+     * @param string $path
+     * @param string $sub_dir
+     * @param boolean $scheme_less
+     * @return string
      */
     function _asset($path, $sub_dir = '', $scheme_less = true)
     {
@@ -184,6 +191,7 @@ if (!function_exists('_route')) {
      * @param string $name
      * @param int|string|array $parameters
      * @return string
+     * @throws Exception
      */
     function _route($name, $parameters = [])
     {
@@ -292,13 +300,13 @@ if (!function_exists('deny')) {
      * only for 401 Unauthorized, 403 Forbidden and 404 Not Found errors
      *
      * @param  string $site site alias name
-     * @param 
-     * @return \Response
+     * @param  int $status
+     * @return \Illuminate\Http\Response
      */
     function deny($site = 'admin', $status = 403)
     {
         if (!in_array($status, [401, 403, 404])) {
-            return $status = 403;
+            $status = 403;
         }
         switch ($site) {
             case 'admin':
@@ -480,6 +488,7 @@ function check_url($url1, $url2)
  *
  * @param string $content
  * @param boolean $is_marked
+ * @return string
  */
 function excerpt($content, $is_marked = true)
 {
@@ -505,6 +514,9 @@ function mark2html($content)
 
 /**
  * 获取分类
+ *
+ * @param string $slug
+ * @return mixed
  */
 function category($slug)
 {
@@ -518,6 +530,9 @@ function category($slug)
 }
 /**
  * 获取分类组
+ *
+ * @param array ids
+ * @return \Illuminate\Support\Collection
  */
 function categories(array $ids = [])
 {
@@ -546,6 +561,9 @@ function categories(array $ids = [])
 
 /**
  * 获取文章
+ *
+ * @param string $slug
+ * @return mixed
  */
 function article($slug)
 {
@@ -559,6 +577,10 @@ function article($slug)
 }
 /**
  * 获取文章列表
+ *
+ * @param int $page_size 分页大小
+ * @param int|null $cid 分类id
+ * @return \Illuminate\Support\Collection
  */
 function articles($page_size = 3, $cid = null)
 {
@@ -584,8 +606,15 @@ function articles($page_size = 3, $cid = null)
     return $query->orderBy('articles.created_at', 'DESC')
                 ->paginate($page_size);
 }
+
 /**
  * 获取特定flag的文章组
+ *
+ * @param int $limit 条数
+ * @param null|int $cid 分类id
+ * @param array $flags 被限定的推荐位属性
+ * @param array $no_flags 被排除的推荐位属性
+ * @return mixed
  */
 function flag_articles($limit = 3, $cid = null, array $flags = [], array $no_flags = [])
 {
@@ -633,7 +662,6 @@ function flag_articles($limit = 3, $cid = null, array $flags = [], array $no_fla
  *
  * @param string $category_slug 符合/^[a-z0-9\-_]{3,20}$/正则的slug
  * @param string $article_slug 符合/^[a-z0-9\-_]{1,120}$/正则的slug
- * @param string $site
  * @param string $suffix
  * @return string
  */
@@ -646,7 +674,16 @@ function slug($category_slug, $article_slug = null, $suffix = '.html')
     }
 }
 
-
+/**
+ * 获取文章 slug 化 url
+ *
+ * @param string $category_slug 分类 slug
+ * @param null $article_slug 文章 slug
+ * @param bool $scheme_less 是否 scheme less 化
+ * @param string $suffix 后缀名
+ * @return string
+ * @throws Exception
+ */
 function slug_url($category_slug, $article_slug = null, $scheme_less = true, $suffix = '.html')
 {
     if ($article_slug === null) {

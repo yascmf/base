@@ -3,7 +3,7 @@
 /**
  * editor.md 配置选项，请查阅官网：https://pandao.github.io/editor.md/ 了解具体设置项
  * 这里只列出一些比较重要的可配置项
- * 请注意，这里的配置项值必须为字符串型的 `ture` 或 `false`
+ * 请注意，这里的配置项值必须为字符串型的 `true` 或 `false`
  */
 return [
     'emoji' => 'true',  //emoji表情

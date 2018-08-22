@@ -14,6 +14,8 @@ function dys_path() {
 /**
  * Get Dictionary config
  *
+ * @param  string|null $dot_key
+ * @param  string|null $default
  * @return mixed
  */
 function dict($dot_key = null, $default = null)
