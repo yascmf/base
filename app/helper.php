@@ -378,6 +378,27 @@ function flag_tag($flag_str, $flags)
         return $str;
     }
 }
+/**
+ * 文章推荐位 Tags 文字化
+ *
+ * @param string $tags_str
+ * @param array $tags
+ * @return string
+ */
+function tag_word($tags_str, $tags)
+{
+    if (empty($tags_str)) {
+        return '';
+    } else {
+        $tags_array = explode(',', rtrim($tags_str, ','));
+        $str = '';
+        foreach ($tags_array as $tag)
+        {
+            if($tags[$tag])$str .= $tags[$tag].'  ';
+        }
+        return $str;
+    }
+}
 
 /**
  * 中文摘要算法
@@ -446,6 +467,7 @@ function check_string($string, $value)
     $status = false;
     $csv_array = explode(',', rtrim($string, ','));  //逗号分割值字符串转成数组
 
+    $value = (string)$value;
     foreach ($csv_array as $csv)
     {
         if ($csv === $value) {
@@ -674,6 +696,10 @@ function slug_url($category_slug, $article_slug = null, $scheme_less = true, $su
     }
 }
 
+function objectToArray($object) {
+    //先编码成json字符串，再解码成数组
+    return json_decode(json_encode($object), true);
+}
 /*
 # ----------------------------------------
 # YASCMF 自定义标签及其辅助方法 END

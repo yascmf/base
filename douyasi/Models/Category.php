@@ -14,9 +14,9 @@ class Category extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-                            'name',
-                            'sort',
-                            'slug',
-                        ];
+        'name',
+        'sort',
+        'slug',
+    ];
 
 }

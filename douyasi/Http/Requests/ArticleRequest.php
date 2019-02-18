@@ -25,12 +25,13 @@ class ArticleRequest extends Request
      */
     public function rules()
     {
-        $id = $this->segment(3) ? ','.$this->segment(3).',id' : '';
+        $id    = $this->segment(3) ? ',' . $this->segment(3) . ',id' : '';
         $rules = [
             'title'       => 'required|min:3|max:80',
-            'slug'        => 'required|regex:/^[a-z0-9\-_]{1,120}$/|unique:articles,slug'.$id,
+            'slug'        => 'required|regex:/^[a-z0-9\-_]{1,120}$/|unique:articles,slug' . $id,
             'cid'         => 'required|exists:categories,id',
             'description' => 'required|min:10',
+            'tag'         => 'required|array',
             'content'     => 'required|min:20',
         ];
         return $rules;

@@ -57,12 +57,13 @@ class CategoryController extends BackController
         if (Gate::denies('category-write')) {
             return deny();
         }
-        $inputs = $request->all();
-        $category = new Category;
-        $category->name = e($inputs['name']);
-        $category->sort = e($inputs['sort']);
-        $category->slug = e(trim($inputs['slug']));
-        if($category->save()) {
+        $inputs               = $request->all();
+        $category             = new Category;
+        $category->name       = e($inputs['name']);
+        $category->sort       = e($inputs['sort']);
+        $category->slug       = e(trim($inputs['slug']));
+        $category->created_at = date('Y-m-d H:i:s');
+        if ($category->save()) {
             return redirect()->to(site_path('category', 'admin'))->with('message', '成功新增分类！');
         } else {
             return redirect()->back()->withInput($request->input())->with('fail', '数据库操作返回异常！');
@@ -74,12 +75,13 @@ class CategoryController extends BackController
         if (Gate::denies('category-write')) {
             return deny();
         }
-        $inputs =$request->all();
-        $category = Category::find($id);
-        $category->name = e($inputs['name']);
-        $category->sort = e($inputs['sort']);
-        $category->slug = e(trim($inputs['slug']));
-        if($category->save()) {
+        $inputs               = $request->all();
+        $category             = Category::find($id);
+        $category->name       = e($inputs['name']);
+        $category->sort       = e($inputs['sort']);
+        $category->slug       = e(trim($inputs['slug']));
+        $category->updated_at = date('Y-m-d H:i:s');
+        if ($category->save()) {
             return redirect()->to(site_path('category', 'admin'))->with('message', '成功修改分类！');
         } else {
             return redirect()->back()->withInput($request->input())->with('fail', '数据库操作返回异常！');

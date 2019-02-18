@@ -29,8 +29,8 @@ Route::get('/', function () {
 -----*/
 Route::group(['prefix' => config('site.route.prefix.doc', 'docs'), 'middleware' => ['block:doc', 'web']], function () {
 
-    Route::get('index', function() {
-        return redirect(config('site.route.prefix.doc', 'docs').'/readme.md');
+    Route::get('index', function () {
+        return redirect(config('site.route.prefix.doc', 'docs') . '/readme.md');
     });
     Route::get('{path}.md', 'MarkdownController@getMarkdownDoc')->where('path', '[A-Za-z0-9_/\-]+');
 
@@ -62,19 +62,18 @@ API站点路由群组 END
 $_ap = config('site.route.prefix.admin', 'admin');
 Route::group(['prefix' => $_ap, 'namespace' => 'Admin', 'middleware' => ['block:admin', 'web']], function () {
 
-    Route::get('/', function() {
-        return redirect(config('site.route.prefix.admin', 'admin').'/auth/login');
+    Route::get('/', function () {
+        return redirect(config('site.route.prefix.admin', 'admin') . '/auth/login');
     });
 
     Route::group(['prefix' => 'auth'], function () {
         $Authority = 'AuthorityController@';
         # 退出
-        Route::get('logout', $Authority.'getLogout');
+        Route::get('logout', $Authority . 'getLogout');
         # 登录
-        Route::get('login', $Authority.'getLogin');
-        Route::post('login', $Authority.'postLogin');
+        Route::get('login', $Authority . 'getLogin');
+        Route::post('login', $Authority . 'postLogin');
     });
-
 
 
     Route::group(['prefix' => '', 'middleware' => ['multi-site.auth:admin']], function () {
@@ -94,27 +93,29 @@ Route::group(['prefix' => $_ap, 'namespace' => 'Admin', 'middleware' => ['block:
         Route::post('upload/picture', 'AssistantController@postUploadPicture');
         Route::post('upload/document', 'AssistantController@postUploadDocument');
 
-            /*
-             * ----------------------------------------
-             * 自定义二次开发区域 START
-             * ----------------------------------------
-             */
+        /*
+         * ----------------------------------------
+         * 自定义二次开发区域 START
+         * ----------------------------------------
+         */
 
-            //内容管理
-            #分类
-            Route::resource('category', 'CategoryController');
-            #文章
-            Route::resource('article', 'ArticleController');
-            #图链
-            Route::resource('picture', 'PictureController');
+        //内容管理
+        #分类
+        Route::resource('category', 'CategoryController');
+        #Tag
+        Route::resource('tag', 'TagController');
+        #文章
+        Route::resource('article', 'ArticleController');
+        #图链
+        Route::resource('picture', 'PictureController');
 
-            //自定义模型管理
-            
-            /*
-             * ----------------------------------------
-             * 自定义二次开发区域 END
-             * ----------------------------------------
-             */
+        //自定义模型管理
+
+        /*
+         * ----------------------------------------
+         * 自定义二次开发区域 END
+         * ----------------------------------------
+         */
 
         //用户管理
         Route::get('me', 'MeController@getMe');

@@ -68,7 +68,7 @@ return [
         'cdn' => [
             //'on' or 'off'
             'status'  => 'on',
-            'url'     => '//s2.ystatic.cn/',
+            'url'     => 'http://s2.ystatic.cn/',
 
             #匹配所有资源路径:
             //'pattern' => '/.*/i',

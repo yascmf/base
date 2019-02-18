@@ -41,6 +41,11 @@ return [
                     'can' => '@category',
                 ],
                 [
+                    'name' => '标签',
+                    'route' => 'admin:tag.index',
+                    'can' => '@tag',
+                ],
+                [
                     'name' => '文章',
                     'route' => 'admin:article.index',
                     'can' => '@article',
@@ -61,5 +66,18 @@ return [
             't' => '置顶',
         ],
 
+    ],
+
+    // tag
+    'tag' => [
+        // 类别
+        'type'=>[
+            '1' => '平台',
+            '2' => '时长',
+            '3' => '风格',
+            '4' => '题材',
+            '5' => '受众人群',
+            '6' => '热门标签',
+        ],
     ],
 ];

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Douyasi\Models\tag;
 use Illuminate\Http\Request;
 
 use Douyasi\Http\Requests\ArticleRequest;
@@ -32,16 +33,17 @@ class ArticleController extends BackController
     public function index(Request $request)
     {
         $s_title = $request->input('s_title');
-        $s_cid = $request->input('s_cid');
+        $s_cid   = $request->input('s_cid');
 
         $categories = Category::all();
-        $articles = Article::where('title', 'like', '%'.$s_title.'%')
-                            ->where('cid', (($s_cid > 0) ? '=' : '<>'), $s_cid)
-                            ->orderBy('created_at','desc')
-                            ->paginate(15);
+        $_tags = Tag::getTagsFormat();
+        $articles   = Article::where('title', 'like', '%' . $s_title . '%')
+            ->where('cid', (($s_cid > 0) ? '=' : '<>'), $s_cid)
+            ->orderBy('created_at', 'desc')
+            ->paginate(15);
 
         $flags = config('ecms.flag.articles');
-        return view('admin.back.article.index', compact('categories', 'articles', 'flags'));
+        return view('admin.back.article.index', compact('categories', 'articles', 'flags', '_tags'));
     }
 
     public function create()
@@ -50,7 +52,8 @@ class ArticleController extends BackController
             return deny();
         }
         $categories = Category::all();
-        return view('admin.back.article.create', compact('categories'));
+        $tags       = Tag::all();
+        return view('admin.back.article.create', compact('categories', 'tags'));
     }
 
     public function store(ArticleRequest $request)
@@ -58,26 +61,39 @@ class ArticleController extends BackController
         if (Gate::denies('article-write')) {
             return deny();
         }
-        $inputs = $request->all();
-        $article = new Article;
-        $article->title = e($inputs['title']);
-        $article->cid = intval($inputs['cid']);
+        $inputs               = $request->all();
+        $article              = new Article;
+        $article->title       = e($inputs['title']);
+        $article->cid         = intval($inputs['cid']);
         $article->description = e($inputs['description']);
-        $article->content = $inputs['content'];
-        $article->slug = $inputs['slug'];
-        $article->thumb = empty($inputs['thumb']) ? '' : e($inputs['thumb']);
-        $tmp_flag = '';
+        $article->content     = $inputs['content'];
+        $article->slug        = $inputs['slug'];
+        $article->thumb       = empty($inputs['thumb']) ? '' : e($inputs['thumb']);
+        $tmp_flag             = '';
         /*这里需要对推荐位flag进行处理*/
-        if(!empty($inputs['flag']) && is_array($inputs['flag'])) {
-            foreach($inputs['flag'] as $flag)
-            {
-                if(!empty($flag)){
-                    $tmp_flag .= $flag.',';
+        if (!empty($inputs['flag']) && is_array($inputs['flag'])) {
+            foreach ($inputs['flag'] as $flag) {
+                if (!empty($flag)) {
+                    $tmp_flag .= $flag . ',';
                 }
             }
         }
-        $article->flag = $tmp_flag;
-        if($article->save()) {
+        $article->flag = trim($tmp_flag, ',');
+        $tmp_tag       = '';
+        /*这里需要对tag进行处理*/
+        if(count($inputs['tag']) > 4){
+            return redirect()->back()->withInput($request->input())->with('fail', '最多只能选4个Tag！');
+        }
+        if (!empty($inputs['tag']) && is_array($inputs['tag'])) {
+            foreach ($inputs['tag'] as $tag) {
+                if (!empty($tag)) {
+                    $tmp_tag .= $tag . ',';
+                }
+            }
+        }
+        $article->tags = trim($tmp_tag, ',');
+        $article->created_at = date('Y-m-d H:i:s');
+        if ($article->save()) {
             return redirect()->to(site_path('article', 'admin'))->with('message', '成功撰写新文章！');
         } else {
             return redirect()->back()->withInput($request->input())->with('fail', '数据库操作返回异常！');
@@ -89,10 +105,11 @@ class ArticleController extends BackController
         if (Gate::denies('article-write')) {
             return deny();
         }
-        $article = Article::find($id);
+        $article    = Article::find($id);
         $categories = Category::all();
+        $tags       = Tag::all();
         is_null($article) AND abort(404);
-        return view('admin.back.article.edit', compact('article', 'categories'));
+        return view('admin.back.article.edit', compact('article', 'categories', 'tags'));
     }
 
     public function update(ArticleRequest $request, $id)
@@ -100,26 +117,39 @@ class ArticleController extends BackController
         if (Gate::denies('article-write')) {
             return deny();
         }
-        $inputs = $request->all();
-        $article = Article::find($id);
-        $article->title = e($inputs['title']);
-        $article->cid = intval($inputs['cid']);
+        $inputs               = $request->all();
+        $article              = Article::find($id);
+        $article->title       = e($inputs['title']);
+        $article->cid         = intval($inputs['cid']);
         $article->description = e($inputs['description']);
-        $article->content = $inputs['content'];
-        $article->slug = $inputs['slug'];
-        $article->thumb = empty($inputs['thumb']) ? '' : e($inputs['thumb']);
-        $tmp_flag = '';
+        $article->content     = $inputs['content'];
+        $article->slug        = $inputs['slug'];
+        $article->thumb       = empty($inputs['thumb']) ? '' : e($inputs['thumb']);
+        $tmp_flag             = '';
         /*这里需要对推荐位flag进行处理*/
-        if(!empty($inputs['flag']) && is_array($inputs['flag'])) {
-            foreach($inputs['flag'] as $flag)
-            {
-                if(!empty($flag)){
-                    $tmp_flag .= $flag.',';
+        if (!empty($inputs['flag']) && is_array($inputs['flag'])) {
+            foreach ($inputs['flag'] as $flag) {
+                if (!empty($flag)) {
+                    $tmp_flag .= $flag . ',';
                 }
             }
         }
-        $article->flag = $tmp_flag;
-        if($article->save()) {
+        $article->flag = trim($tmp_flag, ',');
+        $tmp_tag       = '';
+        /*这里需要对tag进行处理*/
+        if(count($inputs['tag']) > 4){
+            return redirect()->back()->withInput($request->input())->with('fail', '最多只能选4个Tag！');
+        }
+        if (!empty($inputs['tag']) && is_array($inputs['tag'])) {
+            foreach ($inputs['tag'] as $tag) {
+                if (!empty($tag)) {
+                    $tmp_tag .= $tag . ',';
+                }
+            }
+        }
+        $article->tags = trim($tmp_tag, ',');
+        $article->updated_at = date('Y-m-d H:i:s');
+        if ($article->save()) {
             return redirect()->to(site_path('article', 'admin'))->with('message', '成功更新文章！');
         } else {
             return redirect()->back()->withInput($request->input())->with('fail', '数据库操作返回异常！');
