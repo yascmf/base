@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration
             $table->bigInteger('id', true)->unsigned();
             $table->string('title', 100)->nullable()->index('title')->comment('标题');
             $table->string('flag', 50)->nullable()->default('')->index('flag')->comment('推荐位');
+            $table->string('tags', 100)->nullable()->default('')->index('tag')->comment('标签');
             $table->string('thumb', 200)->nullable();
             $table->string('slug', 200)->nullable()->unique('content_slug_unique')->comment('网址缩略名，文章、单页与碎片模型有缩略名');
             $table->integer('cid')->unsigned()->nullable()->default(0)->comment('分类id：文章分类id不为0，单页与碎片分类id默认为0');
