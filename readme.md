@@ -11,7 +11,7 @@ ABANDONED!
 - 2017年 由于工作原因，暂停更新。
 - 2018年07月 开始前后端分离版本（[YASCMF/API](https://github.com/yascmf/api) + [YASCMF/ADMIN](https://github.com/yascmf/admin)）的开发。
 - 2018年08月 使用 `migration` 来迁移数据库，并发布 `LTS 5.5 release` 版本。
-- 2019年之后，本项目已实质性进入停滞阶段。随着前端发展，开源管理后台框架轮子层出不穷，选择更好的前后分离版本已成为最佳选择，特意宣布本项目停止维护，之后 `www.yascmf.com` 域名也将无法访问。
+- 2019年之后，本项目已实质性进入停滞阶段。随着前端发展，开源管理后台框架轮子层出不穷，前后分离版本已成为最佳选择，特意宣布本项目停止维护，之后 `www.yascmf.com` 域名也将无法访问。
 
 详细见 [change-log](https://www.yuque.com/yascmf/docs/change_log.md) 。
 
