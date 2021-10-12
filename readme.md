@@ -1,13 +1,9 @@
 # 芽丝内容管理框架 - 基础开发版(YASCMF/BASE)
 
+### ⚠️警告⚠️
 
 本项目已归档停止维护！
 ABANDONED!
-
-
->   由于工作时间问题，`YASCMF`沉寂了一段时间没有更新，现在它终于迎来5.2新版，未来重点也会放在新版新仓库。
-
->   欢迎 Watching/Star/Fork 本项目，同时也欢迎PHP爱好者、`YASCMF` 开发使用者入群交流，官方QQ群：260655062 。
 
 ### 更新日志
 
@@ -15,14 +11,14 @@ ABANDONED!
 - 2017年 由于工作原因，暂停更新。
 - 2018年07月 开始前后端分离版本（[YASCMF/API](https://github.com/yascmf/api) + [YASCMF/ADMIN](https://github.com/yascmf/admin)）的开发。
 - 2018年08月 使用 `migration` 来迁移数据库，并发布 `LTS 5.5 release` 版本。
+- 2019年之后，本项目已实质性进入停滞阶段。随着前端发展，开源管理后台框架轮子层出不穷，选择更好的前后分离版本已成为最佳选择，特意宣布本项目停止维护，之后 `www.yascmf.com` 域名也将无法访问。
 
-详细见 [change-log](https://github.com/yascmf/docs/blob/master/change-log.md) 。
+详细见 [change-log](https://www.yuque.com/yascmf/docs/change_log.md) 。
 
-### 安装与演示
+### 安装
 
-安装请参考：[docs/install.md](http://www.yascmf.com/docs/install.md)
+安装请参考：[docs/install.md](https://www.yuque.com/yascmf/docs/install.md)
 
-在线演示请参考：[docs/demo.md](http://www.yascmf.com/docs/demo.md)
 
 ### 文档
 
@@ -30,7 +26,7 @@ ABANDONED!
 
 `Laravel` 文档地址：https://laravel.com/docs/5.2 （目前国内中文文档暂未完全更新）
 
-`YASCMF` 官方文档地址：http://www.yascmf.com/docs/index
+`YASCMF` 官方文档地址：https://www.yuque.com/yascmf/docs
 
 `YASCMF` 官方文档仓库：https://github.com/yascmf/docs
 
@@ -40,13 +36,8 @@ ABANDONED!
 
 ### 打赏支持
 
-开源项目离不开各位朋友的支持，如果您觉得 YASCMF 系列软件/源码还不错，可以考虑打赏几元支持一下作者我。打赏捐助的钱会用于服务器和相关网站的运营。
 
-使用支付宝或微信手机客户端扫描下面对应的二维码捐赠：
-
-![wechat_alipay](http://www.yascmf.com/assets/wechat_alipay.jpg)
-
-最新打赏支持记录：http://www.yascmf.com/docs/donation.md
+最新打赏支持记录：https://www.yuque.com/yascmf/docs/donation.md
 
 
 ### 贡献代码
@@ -57,5 +48,4 @@ ABANDONED!
 
 ### 联系作者
 
->   Email: raoyc2009#gmail.com （请修改改`#` 为`@`）  
->   原QQ群准备解散，添加微信号: `i_mingyuan` [明远] 拉你入微信群
+>   Email: raoyc2009#gmail.com （请修改改`#` 为`@`）
